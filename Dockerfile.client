@@ -1,5 +1,10 @@
-FROM maven:3.3-jdk-8
-COPY ./ /app
-WORKDIR /app/examples
+FROM maven:3.3-jdk-8 AS builder
+COPY ./grpc-java /grpc-java
+WORKDIR /grpc-java/examples
+RUN sed -i -e s/localhost/grpc-java-server/g ./src/main/java/io/grpc/examples/helloworld/HelloWorldClient.java
 RUN ./gradlew installDist -PskipAndroid=true -PskipCodegen=true
+
+FROM openjdk:8-jre-alpine
+COPY --from=builder /grpc-java/examples/build/install/examples /grpc-java/examples/build/install/examples
+WORKDIR /grpc-java/examples
 ENTRYPOINT [ "./build/install/examples/bin/hello-world-client" ]

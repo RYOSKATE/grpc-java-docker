@@ -1,7 +1,3 @@
-Dockerfile.client
-Dockerfile.server
-.dockerignore
-
 # Gradle
 build
 gradle.properties
