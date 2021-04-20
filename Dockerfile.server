@@ -1,0 +1,5 @@
+FROM maven:3.3-jdk-8
+COPY ./ /app
+WORKDIR /app/examples
+RUN ./gradlew installDist -PskipAndroid=true -PskipCodegen=true
+ENTRYPOINT [ "./build/install/examples/bin/hello-world-server" ]

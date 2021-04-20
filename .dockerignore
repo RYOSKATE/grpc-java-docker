@@ -1,0 +1,45 @@
+Dockerfile.client
+Dockerfile.server
+.dockerignore
+
+# Gradle
+build
+gradle.properties
+.gradle
+local.properties
+out
+
+# Maven (examples)
+target
+
+# Bazel
+bazel-bin
+bazel-examples
+bazel-genfiles
+bazel-grpc-java
+bazel-out
+bazel-testlogs
+
+# IntelliJ IDEA
+.idea
+*.iml
+*.ipr
+*.iws
+.ijwb
+
+# Eclipse
+.classpath
+.project
+.settings
+.gitignore
+bin
+
+# OS X
+.DS_Store
+
+# Emacs
+*~
+\#*\#
+
+# ARM tests
+qemu-arm-static
